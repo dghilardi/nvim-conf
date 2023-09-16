@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ex
+set -e
 
 CONF_DIR=${XDG_CONFIG_HOME:-"$HOME/.config"}
 NVIM_CONF_DIR="$CONF_DIR/nvim"
@@ -17,5 +17,5 @@ if [ ! "${CONFIRM,,}" = "y" ]; then
   exit 0
 fi
 
-rm -rf "$NVCHAD_CUSTOM_DIR"/*
+rm -rf "$NVCHAD_CUSTOM_DIR" && mkdir "$NVCHAD_CUSTOM_DIR"
 git clone https://github.com/dghilardi/nvim-conf.git "$NVIM_CONF_DIR/lua/custom"
